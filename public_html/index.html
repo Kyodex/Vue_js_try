@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center">Test Vue js</h1>
+            <div class="container">
+                <h2>Tuto :Filtre</h2>
+                <div class="row">
+                    <div class="col-12">
+                        <div id="tuto">
+                            <p>{{montant | euros }}</p>
+                            <!--Parameter de filtre ou autres dans les paranthese-->
+                            <p>{{montant | pourcentage(1) }}</p>
+                            <p>{{ text | ajoute(saisie) }}</p>
+                            <p>{{text | limite(nbr_mot)}}</p>
+                        </div>        
+                    </div>           
+                </div>       
+            </div>
+      <div class="container">
+                <h2 >Additionneur : </h2>
+                <div class="row">                
+                    <div class="col-12" id="k">
+                        <label for="nb_1">Additionneur</label>
+                        <input type="text" v-model="nb_1" >
+                        <label for="nb_2" > + </label>
+                        <input type="text" v-model="nb_2">   
+                        <label v-on@keyup="add()"> = {{result}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <h2>Nombre magique :</h2>
+                <div class="row">                
+                    <div class="col-12" id="magic">                   
+                        <label for="try_number" >Votre choix :</label>
+                        <input type="number" v-model="try_number">
+                        <p v-if="try_number > number">Trop grand</p>
+                        <p v-else-if="try_number < number">Trop petit</p>
+                        <p v-else>Bien jouer</p>
+                    </div>           
+                </div>       
+            </div>
+
+            <div id="calc" class="container">
+                <h2 class="text-justify">Test calculatrice</h2>
+                <div class="row input-group">
+                    <div class="col-md-12">
+                        <div class="input-group-append">
+                            <span class="col-md-3 input-group-text">{{ operator }}</span>
+                        </div>
+                        <div class="input-group-prepend">
+                            <span class="col-md-9 input-group-text">{{ total }}</span>
+                            <input v-model="current" type="number" class="form-control col-md-3" ></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div v-for="row in buttons" class="row">
+                                <div v-for="button in row" class="col-md-3 cell btn btn-outline-secondary" @click="select(button)">{{ button }}</div> 
+                            </div>
+
+                        </div>           
+                    </div>       
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12" id="interface">
+                        <h2>Interface :</h2>
+                        <div v-show="!affichage" style="background-color:red">
+                            <br>
+                            <button v-on:click='show1()' class="btn btn-info">affichier l'autre </button>
+                        </div>
+
+                        <div v-show="affichage" style="background-color:blue">
+                            <br>
+                            <button v-on:click='show1()' class="btn btn-warning">affichier l'autre </button>
+                        </div>       
+                    </div>
+
+                </div>   
+                </body>   
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+                <script src="main.js"></script>
+                </html>
